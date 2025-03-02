@@ -1,0 +1,37 @@
+{% extends 'films/layoute.html' %}
+
+{% block title %}
+    <title>Страница для коментариев</title>
+{% endblock %}
+
+{% block content %}
+        <div class="container my-4">
+            <h1 class="mb-4 text-center">Что-то про фильмы</h1>
+            <div class="row">
+                <div>
+	                 <h2>Форма для добавления коментариев о фильме</h2>
+            <form method="post" class="p-4 border rounded shadow-sm bg-light">
+                {% csrf_token %}
+                <div class="form-group mb-3">
+                    <p>Название фильма</p>
+                    {{ form.title }}
+                </div>
+            <div class="form-group mb-3">
+                    <p>Режисер</p>
+                    {{ form.director }}
+            </div>
+            <div class="form-group mb-3">
+                    <p>Описание</p>
+                    {{ form.short_description }}
+            </div>
+            <div class="form-group mb-3">
+                    <p>Коментарий</p>
+                    {{ form.comment }}
+            </div>
+                <button type="submit" class="btn btn-primary">Добавить комментарий</button>
+            </form>
+            <p>{{error}}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
